@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Coustard, Montserrat } from "next/font/google";
 import "./globals.css";
+import TopBar from "./topBar";
 
 const montserrat = Montserrat({
   weight: "variable",
@@ -29,6 +30,9 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${coustard.variable} antialiased`}
       >
+        <div className="container mx-auto max-w-4xl px-4">
+          <TopBar />
+        </div>
         {children}
       </body>
     </html>
