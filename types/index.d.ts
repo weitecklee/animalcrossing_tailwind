@@ -1,4 +1,4 @@
-import { ImageProps } from "next/image";
+import { ImageProps } from 'next/image';
 
 export interface HistoryDocument {
   name: string;
@@ -20,7 +20,7 @@ interface NH_Details {
   photo_url: string;
   icon_url: string;
   quote: string;
-  "sub-personality": string;
+  'sub-personality': string;
   catchphrase: string;
   clothing: string;
   clothing_variation: string;
@@ -126,3 +126,12 @@ export interface DataContextProps {
 export interface CustomImageProps extends ImageProps {
   blurColor: string;
 }
+
+interface CustomSVGProps extends Omit<SVGProps<SVGSVGElement>, 'ref'> {
+  title?: string;
+  titleId?: string;
+}
+
+export type HeroIcon = ForwardRefExoticComponent<
+  CustomSVGProps & RefAttributes<SVGSVGElement>
+>;
