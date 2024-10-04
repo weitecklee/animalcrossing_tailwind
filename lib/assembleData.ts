@@ -25,7 +25,7 @@ async function assembleData(): Promise<{
       history.endDateDate.setHours(0, 0, 0);
       history.duration = calculateDays(
         history.startDateDate,
-        history.endDateDate,
+        history.endDateDate
       );
       history.endDateDate.setDate(history.endDateDate.getDate() + 30);
       history.endDateDate.setHours(0, 0, 0);
@@ -34,7 +34,7 @@ async function assembleData(): Promise<{
       history.endDateDate = new Date(history.endDate);
       history.duration = calculateDays(
         history.startDateDate,
-        history.endDateDate,
+        history.endDateDate
       );
     }
     history.endDateString = history.endDateDate.toLocaleDateString('en-ZA');
@@ -46,7 +46,7 @@ async function assembleData(): Promise<{
         history.photoDateDate.toLocaleDateString('en-ZA');
       history.daysToPhoto = calculateDays(
         history.startDateDate,
-        history.photoDateDate,
+        history.photoDateDate
       );
     } else {
       history.photo = false;

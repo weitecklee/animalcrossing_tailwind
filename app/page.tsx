@@ -6,7 +6,7 @@ import Loading from '@/app/loading';
 
 export default function Home() {
   return (
-    <div className="flex flex-wrap-reverse justify-between font-[family-name:var(--font-montserrat)]">
+    <div className="flex flex-wrap-reverse justify-between">
       <div className="w-full sm:w-1/3 pt-4 pb-8">
         <Loading />
       </div>

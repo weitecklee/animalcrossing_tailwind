@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Coustard, Montserrat } from 'next/font/google';
 import './globals.css';
 import TopBar from './topBar';
+import { DataProvider } from '@/lib/dataContext';
 
 const montserrat = Montserrat({
   weight: 'variable',
@@ -30,10 +31,12 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${coustard.variable} antialiased`}
       >
-        <div className="container mx-auto max-w-7xl px-4 mt-20">
-          <TopBar />
-          {children}
-        </div>
+        <DataProvider>
+          <div className="container mx-auto max-w-7xl px-4 mt-20">
+            <TopBar />
+            {children}
+          </div>
+        </DataProvider>
       </body>
     </html>
   );
