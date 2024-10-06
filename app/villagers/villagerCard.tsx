@@ -1,7 +1,6 @@
 import CRIcon from '@/components/crIcon';
 import CustomImage from '@/components/customImage';
 import { History, NookipediaVillager } from '@/types';
-import { useState } from 'react';
 import IconWithText from '@/components/iconWithText';
 import {
   ArrowRightEndOnRectangleIcon,
@@ -17,49 +16,39 @@ export default function VillagerCard({
   history: History;
   villagerData: NookipediaVillager;
 }) {
-  const [elevation, setElevation] = useState(false);
-
   return (
-    <div
-      className={`relative cursor-pointer bg-background transition-shadow ${
-        elevation ? 'shadow-xl' : 'shadow-lg'
-      }`}
-      onMouseOver={() => setElevation(true)}
-      onMouseOut={() => setElevation(false)}
-    >
-      <div className="">
-        <div className={`flex flex-col md:flex-row`}>
-          <div className={`relative max-w-full max-h-full h-40 w-80`}>
-            <CustomImage
-              src={villagerData.nh_details.photo_url}
-              alt={`${history.name} photo`}
-              title={history.name}
-              fill
-              blurColor={villagerData.title_color}
-            />
+    <div className="w-80 ring-1 ring-gray-500 ring-opacity-20 hover:ring-2 hover:ring-alternate cursor-pointer bg-background transition-shadow shadow-xl hover:shadow-2xl">
+      <div className={`flex flex-col md:flex-row`}>
+        <div className={`relative max-w-[50%] max-h-full h-40 w-80`}>
+          <CustomImage
+            src={villagerData.nh_details.photo_url}
+            alt={`${history.name} photo`}
+            title={history.name}
+            fill
+            blurColor={villagerData.title_color}
+          />
+        </div>
+        <div className="relative w-1/2 p-2">
+          <div className="flex items-center">
+            <span className="font-[family-name:var(--font-coustard)] text-xl pr-2">
+              {history.name}
+            </span>
+            {history.currentResident && <CRIcon />}
           </div>
-          <div className="relative w-1/2">
-            <div className="flex items-center">
-              <span className="font-[family-name:var(--font-coustard)] text-xl">
-                {history.name}
-              </span>
-              {history.currentResident && <CRIcon />}
-            </div>
+          <IconWithText
+            Icon={ArrowRightEndOnRectangleIcon}
+            text={history.startDateString}
+          />
+          {history.photo && (
+            <IconWithText Icon={CameraIcon} text={history.photoDateString} />
+          )}
+          {!history.currentResident && (
             <IconWithText
-              Icon={ArrowRightEndOnRectangleIcon}
-              text={history.startDateString}
+              Icon={ArrowRightStartOnRectangleIcon}
+              text={history.endDateString}
             />
-            {history.photo && (
-              <IconWithText Icon={CameraIcon} text={history.photoDateString} />
-            )}
-            {!history.currentResident && (
-              <IconWithText
-                Icon={ArrowRightStartOnRectangleIcon}
-                text={history.endDateString}
-              />
-            )}
-            <IconWithText Icon={ClockIcon} text={dayOrDays(history.duration)} />
-          </div>
+          )}
+          <IconWithText Icon={ClockIcon} text={dayOrDays(history.duration)} />
         </div>
       </div>
     </div>
