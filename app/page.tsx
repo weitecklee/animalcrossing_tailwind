@@ -2,13 +2,13 @@ import Image from 'next/image';
 import AvatarPNG from '@/public/avatar13.png';
 import Link from 'next/link';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/16/solid';
-import Loading from '@/app/loading';
+import Events from './events';
 
 export default function Home() {
   return (
     <div className="flex flex-wrap-reverse justify-between">
       <div className="w-full sm:w-1/3 pt-4 pb-8">
-        <Loading />
+        <Events />
       </div>
       <div className="w-full sm:w-2/3">
         <p className="text-xl">Hello there!</p>
