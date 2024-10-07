@@ -4,6 +4,8 @@ import Legend from './legend';
 import { useContext } from 'react';
 import { DataContext } from '@/lib/dataContext';
 import Loading from '@/app/loading';
+import VillagerCard from './villagerCard';
+import nookipediaData from '@/lib/nookipediaData';
 
 export default function Villagers() {
   const { historyMap } = useContext(DataContext);
@@ -30,7 +32,7 @@ export default function Villagers() {
     return (
       <div className="relative">
         <Legend />
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-4 justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-4 justify-center">
           {Array.from(historyMap.values()).map((history) => (
             <VillagerCard
               key={history.name}
@@ -38,7 +40,7 @@ export default function Villagers() {
               villagerData={nookipediaData.get(history.name)!}
             />
           ))}
-        </div> */}
+        </div>
         <div>
           <Legend />
         </div>

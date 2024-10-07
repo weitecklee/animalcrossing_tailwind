@@ -15,13 +15,13 @@ export default function Legend() {
         <CRIcon />
         <span>&ensp;Current Resident</span>
       </div>
-      <IconWithText Icon={ArrowRightEndOnRectangleIcon} text={'Move-in date'} />
-      <IconWithText Icon={CameraIcon} text={'Photo date'} />
+      <IconWithText Icon={ArrowRightEndOnRectangleIcon} text="Move-in date" />
+      <IconWithText Icon={CameraIcon} text="Photo date" />
       <IconWithText
         Icon={ArrowRightStartOnRectangleIcon}
-        text={'Move-out date'}
+        text="Move-out date"
       />
-      <IconWithText Icon={ClockIcon} text={'Length of Stay'} />
+      <IconWithText Icon={ClockIcon} text="Length of Stay" />
     </div>
   );
 }
