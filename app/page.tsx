@@ -6,7 +6,7 @@ import Events from './events';
 
 export default function Home() {
   return (
-    <div className="flex flex-wrap-reverse justify-between">
+    <div className="flex flex-row-reverse justify-between">
       <div className="w-full sm:w-1/3 pt-4 pb-8">
         <Events />
       </div>
