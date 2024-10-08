@@ -30,9 +30,7 @@ export default function VillagerCard({
         </div>
         <div className="relative w-1/2 p-2">
           <div className="flex items-center">
-            <span className="font-[family-name:var(--font-coustard)] text-xl pr-2">
-              {history.name}
-            </span>
+            <span className="font-coustard text-xl pr-2">{history.name}</span>
             {history.currentResident && <CRIcon />}
           </div>
           <IconWithText

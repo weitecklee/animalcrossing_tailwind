@@ -7,7 +7,7 @@ import Events from './events';
 export default function Home() {
   return (
     <div className="flex flex-row-reverse justify-between">
-      <div className="w-full sm:w-1/3 pt-4 pb-8">
+      <div className="w-full sm:w-1/3">
         <Events />
       </div>
       <div className="w-full sm:w-2/3">
@@ -20,29 +20,23 @@ export default function Home() {
           You can find the following pages and information:
           <br />
           &emsp;&emsp;
-          <span className="font-[family-name:var(--font-coustard)]">
-            Villagers
-          </span>
+          <span className="font-coustard">Villagers</span>
           : all the villagers that have been on my island
           <br />
           &emsp;&emsp;
-          <span className="font-[family-name:var(--font-coustard)]">
-            Timeline
-          </span>
+          <span className="font-coustard">Timeline</span>
           : a timeline chart of the villagers&apos; stays
           <br />
           &emsp;&emsp;
-          <span className="font-[family-name:var(--font-coustard)]">Stats</span>
+          <span className="font-coustard">Stats</span>
           : all sorts of fun stats
           <br />
           &emsp;&emsp;
-          <span className="font-[family-name:var(--font-coustard)]">
-            Search
-          </span>
+          <span className="font-coustard">Search</span>
           : find villagers by traits
           <br />
           &emsp;&emsp;
-          <span className="font-[family-name:var(--font-coustard)]">About</span>
+          <span className="font-coustard">About</span>
           : info about the game and me
           <br />
           <br />
@@ -64,7 +58,7 @@ export default function Home() {
             href="https://www.nintendo.com/store/products/animal-crossing-new-horizons-switch/"
             target="_blank"
             rel="noreferrer"
-            className="font-[family-name:var(--font-coustard)] text-inverse hover:underline"
+            className="font-coustard text-inverse hover:underline"
           >
             Nintendo
             <ArrowTopRightOnSquareIcon className="h-4 w-4 inline" />
@@ -76,7 +70,7 @@ export default function Home() {
             href="https://nookipedia.com/"
             target="_blank"
             rel="noopener"
-            className="font-[family-name:var(--font-coustard)] text-inverse hover:underline"
+            className="font-coustard text-inverse hover:underline"
           >
             Nookipedia
             <ArrowTopRightOnSquareIcon className="h-4 w-4 inline" />
@@ -89,7 +83,7 @@ export default function Home() {
             href="https://github.com/weitecklee"
             target="_blank"
             rel="noreferrer"
-            className="font-[family-name:var(--font-coustard)] text-inverse hover:underline"
+            className="font-coustard text-inverse hover:underline"
           >
             weitecklee
             <ArrowTopRightOnSquareIcon className="h-4 w-4 inline" />

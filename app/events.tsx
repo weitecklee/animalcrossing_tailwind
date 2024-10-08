@@ -29,20 +29,24 @@ export default function Events() {
   }
 
   return (
-    <div className="shadow-lg bg-white/30">
+    <div className="shadow-lg bg-white/30 py-2 px-6">
       <div className="flex justify-center">
-        <div className="text-2xl font-bold">Latest Happenings</div>
+        <div className="text-sm font-coustard bg-alternate py-2 px-4 rounded-full">
+          Latest Happenings
+        </div>
       </div>
       <div className="grid grid-cols-1 gap-2">
-        {eventsData.slice(0, 10).map((eventDatum) => {
+        {eventsData.map((eventDatum) => {
           const { date, event, villager } = eventDatum;
           return (
             <div key={`${villager} ${event}`} className="flex items-center">
-              <div className="flex items-center">
-                <VillagerIcon villager={villager} />
-                <div className="pl-2">{rewordEvent(villager, event)}</div>
+              <VillagerIcon villager={villager} />
+              <div className="pl-2">
+                <div>{rewordEvent(villager, event)}</div>
+                <div className="text-sm text-gray-600">
+                  {dateFormatter(new Date(date))}
+                </div>
               </div>
-              <div className="pl-2">{dateFormatter(new Date(date))}</div>
             </div>
           );
         })}
