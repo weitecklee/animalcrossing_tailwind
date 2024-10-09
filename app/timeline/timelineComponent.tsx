@@ -17,6 +17,8 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { DataContext } from '@/lib/dataContext';
 import calculateStats from '@/lib/calculateStats';
+import Draggable from 'react-draggable';
+import { HandRaisedIcon } from '@heroicons/react/24/solid';
 
 ChartJS.register(
   CategoryScale,
@@ -214,6 +216,34 @@ export default function Timeline() {
         }}
         options={barOptions}
       />
+      <Draggable
+        handle="#dragFab"
+        bounds="parent"
+        cancel="#changeViewButton"
+        nodeRef={nodeRef}
+      >
+        <div ref={nodeRef} className="absolute right-2 top-1/2">
+          <span
+            id="dragFab"
+            className="absolute -top-3 -left-2 cursor-grab active:cursor-grabbing"
+          >
+            <HandRaisedIcon className="h-4 w-4 inline" />
+          </span>
+          <button
+            id="changeViewButton"
+            onClick={() => {
+              setTimelineMode((mode) => (mode === 2 ? 0 : mode + 1));
+            }}
+            className="px-4 bg-alternate font-coustard text-black p-2 rounded-lg hover:bg-white transition shadow-xl"
+          >
+            {timelineMode === 0
+              ? 'Timeline view'
+              : timelineMode === 1
+              ? 'Lined-up view'
+              : 'Sorted view'}
+          </button>
+        </div>
+      </Draggable>
     </div>
   );
 }
