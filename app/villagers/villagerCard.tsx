@@ -17,7 +17,7 @@ export default function VillagerCard({
   villagerData: NookipediaVillager;
 }) {
   return (
-    <div className="w-80 cursor-pointer bg-white/30 transition shadow-lg hover:shadow-xl hover:bg-white">
+    <div className="w-80 cursor-pointer bg-white/40 transition shadow-lg hover:shadow-xl hover:bg-white">
       <div className={`flex flex-col md:flex-row`}>
         <div className={`relative max-w-[50%] max-h-full h-40 w-80`}>
           <CustomImage
