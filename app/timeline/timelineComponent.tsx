@@ -19,6 +19,8 @@ import { DataContext } from '@/lib/dataContext';
 import calculateStats from '@/lib/calculateStats';
 import Draggable from 'react-draggable';
 import { HandRaisedIcon } from '@heroicons/react/24/solid';
+import TimelineTooltip from './timelineTooltip';
+import nookipediaData from '@/lib/nookipediaData';
 
 ChartJS.register(
   CategoryScale,
@@ -216,6 +218,12 @@ export default function Timeline() {
         }}
         options={barOptions}
       />
+      {showTooltip && (
+        <TimelineTooltip
+          villagerData={nookipediaData.get(timelineVillager)!}
+          history={historyMap.get(timelineVillager)!}
+        />
+      )}
       <Draggable
         handle="#dragFab"
         bounds="parent"
