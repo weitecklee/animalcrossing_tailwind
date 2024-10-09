@@ -29,7 +29,7 @@ export default function Events() {
   }
 
   return (
-    <div className="shadow-lg bg-white/30 py-2 px-6">
+    <div className="shadow-lg bg-white/40 py-2 px-6">
       <div className="flex justify-center">
         <div className="text-sm font-coustard bg-alternate py-2 px-4 rounded-full">
           Latest Happenings
