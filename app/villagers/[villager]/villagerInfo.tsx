@@ -3,6 +3,7 @@
 import Loading from '@/app/loading';
 import CRIcon from '@/components/crIcon';
 import CustomImage from '@/components/customImage';
+import IconGrid from '@/components/iconGrid';
 import { DataContext } from '@/lib/dataContext';
 import { dateFormatter, dayOrDays, fixName } from '@/lib/functions';
 import nookipediaData from '@/lib/nookipediaData';
@@ -36,7 +37,7 @@ export default function VillagerInfo({ villager }: { villager: string }) {
               key={villagerData.image_url}
             />
           </div>
-          <div className="flex flex-col justify-center items-center max-w-1/2 max-h-full">
+          <div className="flex flex-col items-center max-w-1/2 max-h-full">
             <div className="relative w-32 h-32 max-w-full max-h-full">
               <CustomImage
                 src={villagerData.nh_details.icon_url}
@@ -67,7 +68,6 @@ export default function VillagerInfo({ villager }: { villager: string }) {
           </h6>
           {history && history.currentResident && <CRIcon />}
         </div>
-
         <p>
           {villagerData.personality} {villagerData.gender}{' '}
           {villagerData.species}
@@ -99,7 +99,6 @@ export default function VillagerInfo({ villager }: { villager: string }) {
             Time to give: {history.daysToPhoto} days
           </p>
         )}
-
         {history && !history?.currentResident && (
           <p>Moved out on {dateFormatter(history.endDateDate)}</p>
         )}
@@ -113,7 +112,7 @@ export default function VillagerInfo({ villager }: { villager: string }) {
               <br />
               {history.islandmates.length} islandmates:
             </p>
-            {/* <IconGrid villagers={history.islandmates} /> */}
+            <IconGrid villagers={history.islandmates} />
           </>
         )}
         <br />
