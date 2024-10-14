@@ -7,6 +7,12 @@ import calculateStats from '@/lib/calculateStats';
 import IconGrid from '@/components/iconGrid';
 import CRIcon from '@/components/crIcon';
 import { dayOrDays } from '@/lib/functions';
+import DividerWithText from '@/components/dividerWithText';
+
+function CustomDividerWithText({ text }: { text: string }) {
+  return <DividerWithText text={text} className="pt-2 pb-1" />;
+}
+
 export default function Stats() {
   const { historyMap } = useContext(DataContext);
 
@@ -37,7 +43,7 @@ export default function Stats() {
         <IconGrid villagers={currentResidents} />
       </div>
       <div>
-        <h1 className="font-coustard">Length of Stay</h1>
+        <CustomDividerWithText text="Length of Stay" />
         <p>
           Average:{' '}
           {(
@@ -56,17 +62,17 @@ export default function Stats() {
         <IconGrid traitData={durationData[durationData.length - 1]} />
       </div>
       <div>
-        <h1 className="font-coustard">Species</h1>
+        <CustomDividerWithText text="Species" />
         <p>Most common: {speciesData[0].trait}</p>
         <IconGrid traitData={speciesData[0]} />
       </div>
       <div>
-        <h1 className="font-coustard">Personality</h1>
+        <CustomDividerWithText text="Personality" />
         <p>Most common: {personalityData[0].trait}</p>
         <IconGrid traitData={personalityData[0]} />
       </div>
       <div>
-        <h1 className="font-coustard">Gender</h1>
+        <CustomDividerWithText text="Gender" />
         <p>
           {genderData[0].trait}: {genderData[0].count}
         </p>
@@ -75,7 +81,7 @@ export default function Stats() {
         </p>
       </div>
       <div>
-        <h1 className="font-coustard">Photos</h1>
+        <CustomDividerWithText text="Photos" />
         <p>
           Given: {photoStats.count} (
           {((photoStats.count / historyMap.size) * 100).toFixed(2)}%)
@@ -102,7 +108,7 @@ export default function Stats() {
         <IconGrid traitData={photoStats2.longestWithoutGiving} />
       </div>
       <div>
-        <h1 className="font-coustard">Islandmates</h1>
+        <CustomDividerWithText text="Islandmates" />
         <p>Most islandmates: {islandmatesData[0].trait}</p>
         <IconGrid traitData={islandmatesData[0]} />
         <p>
