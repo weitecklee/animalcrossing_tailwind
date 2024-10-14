@@ -5,8 +5,8 @@ import { dateFormatter } from '@/lib/functions';
 import nookipediaData from '@/lib/nookipediaData';
 import { useContext } from 'react';
 import Loading from './loading';
-import Image from 'next/image';
 import VillagerIcon from '@/components/villagerIcon';
+import DividerWithText from '@/components/dividerWithText';
 
 const determinePronoun = (villager: string) =>
   nookipediaData.get(villager)!.gender === 'Male' ? 'his' : 'her';
@@ -30,11 +30,7 @@ export default function Events() {
 
   return (
     <div className="shadow-lg bg-white/40 py-2 px-6">
-      <div className="flex justify-center">
-        <div className="text-sm font-coustard bg-alternate py-2 px-4 rounded-full">
-          Latest Happenings
-        </div>
-      </div>
+      <DividerWithText text="Latest Happenings" />
       <div className="grid grid-cols-1 gap-2">
         {eventsData.map((eventDatum) => {
           const { date, event, villager } = eventDatum;

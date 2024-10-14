@@ -39,7 +39,7 @@ export default function Villagers() {
   return (
     <div className="relative">
       <Legend />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-4 justify-center">
+      <div className="flex flex-wrap justify-evenly gap-4 py-4">
         {Array.from(historyMap.values()).map((history) => (
           <VillagerCard
             key={history.name}
