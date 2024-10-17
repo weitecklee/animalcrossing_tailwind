@@ -85,6 +85,7 @@ const options = {
       display: false,
     },
   },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 } as any;
 
 const options2 = JSON.parse(JSON.stringify(options));
@@ -120,6 +121,7 @@ export default function Timeline() {
   const nodeRef = useRef(null);
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     options.plugins.tooltip.external = ({ tooltip }: { tooltip: any }) => {
       if (tooltip && tooltip.title) {
         setTimelineVillager(tooltip.title[0]);
