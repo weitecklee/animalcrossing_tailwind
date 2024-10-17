@@ -7,10 +7,14 @@ import calculateStats from '@/lib/calculateStats';
 import IconGrid from '@/components/iconGrid';
 import CRIcon from '@/components/crIcon';
 import { dayOrDays } from '@/lib/functions';
-import DividerWithText from '@/components/dividerWithText';
+import DividerWithText, {
+  DividerWithTextProps,
+} from '@/components/dividerWithText';
+import { Tooltip } from 'flowbite-react';
+import { InformationCircleIcon } from '@heroicons/react/24/outline';
 
-function CustomDividerWithText({ text }: { text: string }) {
-  return <DividerWithText text={text} className="pt-2 pb-1" />;
+function CustomDividerWithText(props: DividerWithTextProps) {
+  return <DividerWithText {...props} className="pt-2 pb-1" />;
 }
 
 export default function Stats() {
@@ -81,7 +85,29 @@ export default function Stats() {
         </p>
       </div>
       <div>
-        <CustomDividerWithText text="Photos" />
+        <CustomDividerWithText
+          text="Photos"
+          content={
+            <Tooltip
+              className="bg-alternate text-black"
+              arrow={false}
+              placement="bottom"
+              content={
+                <p className="max-w-80 font-montserrat font-normal text-base">
+                  You can interact with villagers to raise your friendship level
+                  with them, usually by talking to them, giving them gifts, or
+                  completing tasks for them. Once this friendship level is high
+                  enough, villagers may randomly give you their photo after
+                  being gifted a high quality item. I usually try to wait till I
+                  have received a villager&#39;s photo before I let them leave
+                  the island.
+                </p>
+              }
+            >
+              <InformationCircleIcon className="h-4 w-4 cursor-pointer" />
+            </Tooltip>
+          }
+        />
         <p>
           Given: {photoStats.count} (
           {((photoStats.count / historyMap.size) * 100).toFixed(2)}%)
