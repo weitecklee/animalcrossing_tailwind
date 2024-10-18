@@ -21,9 +21,9 @@ export default function TopBar() {
         <nav>
           <ul className="flex space-x-4">
             {pages.map((page) => (
-              <li key={page} className="hover:bg-background p-2 rounded">
-                {<Link href={`/${page.toLowerCase()}`}>{page}</Link>}
-              </li>
+              <Link key={page} href={`/${page.toLowerCase()}`}>
+                <li className="hover:bg-background p-2 rounded">{page}</li>
+              </Link>
             ))}
           </ul>
         </nav>
