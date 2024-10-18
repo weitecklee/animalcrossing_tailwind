@@ -7,6 +7,7 @@ import calculateStats from '@/lib/calculateStats';
 import IconGrid from '@/components/iconGrid';
 import CRIcon from '@/components/crIcon';
 import { dayOrDays } from '@/lib/functions';
+import Link from 'next/link';
 import DividerWithText, {
   DividerWithTextProps,
 } from '@/components/dividerWithText';
@@ -15,6 +16,16 @@ import { InformationCircleIcon } from '@heroicons/react/24/outline';
 
 function CustomDividerWithText(props: DividerWithTextProps) {
   return <DividerWithText {...props} className="pt-2 pb-1" />;
+}
+
+function BreakdownButton({ stat }: { stat: string }) {
+  return (
+    <Link href={`/stats/${stat.toLowerCase()}`}>
+      <button className="bg-alternate text-sm font-coustard py-2 px-2 rounded-md hover:bg-white">
+        Full Breakdown
+      </button>
+    </Link>
+  );
 }
 
 export default function Stats() {
@@ -64,16 +75,19 @@ export default function Stats() {
           Shortest: {dayOrDays(durationData[durationData.length - 1].duration)}
         </p>
         <IconGrid traitData={durationData[durationData.length - 1]} />
+        <BreakdownButton stat="lengthOfStay" />
       </div>
       <div>
         <CustomDividerWithText text="Species" />
         <p>Most common: {speciesData[0].trait}</p>
         <IconGrid traitData={speciesData[0]} />
+        <BreakdownButton stat="species" />
       </div>
       <div>
         <CustomDividerWithText text="Personality" />
         <p>Most common: {personalityData[0].trait}</p>
         <IconGrid traitData={personalityData[0]} />
+        <BreakdownButton stat="personality" />
       </div>
       <div>
         <CustomDividerWithText text="Gender" />
@@ -83,6 +97,7 @@ export default function Stats() {
         <p>
           {genderData[1].trait}: {genderData[1].count}
         </p>
+        <BreakdownButton stat="gender" />
       </div>
       <div>
         <CustomDividerWithText
@@ -132,6 +147,7 @@ export default function Stats() {
           {photoStats2.longestWithoutGiving.duration} days
         </p>
         <IconGrid traitData={photoStats2.longestWithoutGiving} />
+        <BreakdownButton stat="photos" />
       </div>
       <div>
         <CustomDividerWithText text="Islandmates" />
@@ -142,6 +158,8 @@ export default function Stats() {
           {islandmatesData[islandmatesData.length - 1].trait}
         </p>
         <IconGrid traitData={islandmatesData[islandmatesData.length - 1]} />
+
+        <BreakdownButton stat="islandmates" />
       </div>
     </>
   );
