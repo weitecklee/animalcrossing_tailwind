@@ -7,7 +7,7 @@ import {
   ArrowRightStartOnRectangleIcon,
 } from '@heroicons/react/16/solid';
 import { ClockIcon } from '@heroicons/react/24/outline';
-import { Popover, PopoverProps } from 'flowbite-react';
+import { CustomFlowbiteTheme, Popover, PopoverProps } from 'flowbite-react';
 import Image from 'next/image';
 import { useContext, useRef, useState } from 'react';
 import CRBadge from './crBadge';
@@ -19,6 +19,12 @@ interface VillagerTooltipProps extends Omit<PopoverProps, 'content'> {
 
 let noDelay = false;
 let noDelayID: NodeJS.Timeout | null = null;
+
+const customTheme: CustomFlowbiteTheme['popover'] = {
+  arrow: {
+    base: 'absolute h-2 w-2 z-0 rotate-45 bg-alternate border border-alternate',
+  },
+};
 
 export default function VillagerTooltip({
   villager,
@@ -35,6 +41,7 @@ export default function VillagerTooltip({
   return (
     <Popover
       {...props}
+      theme={customTheme}
       aria-labelledby="villager-tooltip"
       content={
         <div className="bg-alternate p-4">
@@ -74,9 +81,7 @@ export default function VillagerTooltip({
           )}
         </div>
       }
-      arrow={false}
       open={open}
-      onOpenChange={setOpen}
     >
       <div
         onMouseEnter={() => {
