@@ -37,6 +37,26 @@ export default function VillagerTooltip({
 
   const [open, setOpen] = useState(false);
   const timeoutID = useRef<NodeJS.Timeout | null>(null);
+  const handleMouseEnter = () => {
+    if (timeoutID.current) clearTimeout(timeoutID.current);
+    if (noDelayID) clearTimeout(noDelayID);
+    if (noDelay) {
+      setOpen(true);
+    } else {
+      timeoutID.current = setTimeout(() => {
+        noDelay = true;
+        setOpen(true);
+      }, 500);
+    }
+  };
+  const handleMouseLeave = () => {
+    if (timeoutID.current) clearTimeout(timeoutID.current);
+    if (noDelayID) clearTimeout(noDelayID);
+    setOpen(false);
+    noDelayID = setTimeout(() => {
+      noDelay = false;
+    }, 500);
+  };
 
   return (
     <Popover
@@ -83,28 +103,7 @@ export default function VillagerTooltip({
       }
       open={open}
     >
-      <div
-        onMouseEnter={() => {
-          if (timeoutID.current) clearTimeout(timeoutID.current);
-          if (noDelayID) clearTimeout(noDelayID);
-          if (noDelay) {
-            setOpen(true);
-          } else {
-            timeoutID.current = setTimeout(() => {
-              noDelay = true;
-              setOpen(true);
-            }, 500);
-          }
-        }}
-        onMouseLeave={() => {
-          if (timeoutID.current) clearTimeout(timeoutID.current);
-          if (noDelayID) clearTimeout(noDelayID);
-          setOpen(false);
-          noDelayID = setTimeout(() => {
-            noDelay = false;
-          }, 500);
-        }}
-      >
+      <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         {children}
       </div>
     </Popover>
