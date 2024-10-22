@@ -3,6 +3,7 @@
 import Loading from '@/app/loading';
 import DividerWithText from '@/components/dividerWithText';
 import IconGrid from '@/components/iconGrid';
+import VillagerIcon from '@/components/villagerIcon';
 import calculateStats from '@/lib/calculateStats';
 import { DataContext } from '@/lib/dataContext';
 import { notFound } from 'next/navigation';
@@ -32,7 +33,7 @@ export default function StatBreakdown({
     personalityData,
     genderData,
     // photoData,
-    // islandmatesData,
+    islandmatesData,
     // durationData,
     // noPhotoData,
   } = calculateStats(historyMap);
@@ -85,7 +86,23 @@ export default function StatBreakdown({
     case 'photos':
       return;
     case 'islandmates':
-      return;
+      return (
+        <>
+          <TitleChip title="Islandmates Breakdown" />
+          <ul>
+            {islandmatesData.map((islandmates) =>
+              islandmates.villagers.map((villager) => (
+                <li key={villager}>
+                  <div className="flex justify-center items-center gap-4">
+                    <VillagerIcon villager={villager} />
+                    <p>{islandmates.trait}</p>
+                  </div>
+                </li>
+              ))
+            )}
+          </ul>
+        </>
+      );
     default:
       return notFound();
   }
