@@ -48,7 +48,7 @@ export default function Villagers() {
           />
         ))}
       </div>
-      <div className="pb-4" ref={bottomRef}>
+      <div ref={bottomRef}>
         <Legend />
       </div>
       <div
