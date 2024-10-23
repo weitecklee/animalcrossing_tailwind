@@ -3,6 +3,7 @@ import { Coustard, Montserrat } from 'next/font/google';
 import './globals.css';
 import TopBar from './topBar';
 import { DataProvider } from '@/lib/dataContext';
+import Scroller from '@/components/scroller';
 
 const montserrat = Montserrat({
   weight: 'variable',
@@ -32,9 +33,10 @@ export default function RootLayout({
         className={`${montserrat.variable} ${coustard.variable} antialiased`}
       >
         <DataProvider>
-          <div className="container mx-auto max-w-7xl px-4 mt-20 pb-4">
+          <div className="container mx-auto max-w-7xl px-4 mt-20 pb-4 relative">
             <TopBar />
             {children}
+            <Scroller />
           </div>
         </DataProvider>
       </body>
