@@ -34,6 +34,8 @@ export default function Scroller() {
             ? 'opacity-100 pointer-events-auto'
             : 'opacity-0 pointer-events-none'
         }`}
+        onMouseOver={() => clearTimeout(timeoutID.current)}
+        onMouseOut={handleScroll}
       >
         <div className="flex flex-col fixed top-1/2 transform -translate-x-full -translate-y-1/2 space-y-2">
           <button
