@@ -7,6 +7,7 @@ import VillagerIcon from '@/components/villagerIcon';
 import calculateStats from '@/lib/calculateStats';
 import { DataContext } from '@/lib/dataContext';
 import { dayOrDays } from '@/lib/functions';
+import { Table } from 'flowbite-react';
 import { notFound } from 'next/navigation';
 import { useContext } from 'react';
 
@@ -39,13 +40,47 @@ export default function StatBreakdown({
     genderData,
     photoData,
     islandmatesData,
-    // durationData,
+    durationData,
     noPhotoData,
   } = calculateStats(historyMap);
 
   switch (params.stat) {
     case 'lengthOfStay':
-      return;
+      return (
+        <>
+          <TitleChip title="Length of Stay Breakdown" />
+          <table className="w-full">
+            <thead>
+              <tr>
+                <th scope="col">Villager</th>
+                <th scope="col">Length of Stay (days)</th>
+                <th scope="col">Move-in Date</th>
+                <th scope="col">Move-out Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {durationData.map((duration) =>
+                duration.villagers.map((villager) => {
+                  const history = historyMap.get(villager)!;
+
+                  return (
+                    <tr key={villager}>
+                      <td className="flex justify-center">
+                        <VillagerIcon villager={villager} />
+                      </td>
+                      <td className="text-center">{duration.duration}</td>
+                      <td className="text-center">{history.startDateString}</td>
+                      <td className="text-center">
+                        {history.currentResident ? '-' : history.endDateString}
+                      </td>
+                    </tr>
+                  );
+                })
+              )}
+            </tbody>
+          </table>
+        </>
+      );
     case 'species':
       return (
         <>

@@ -20,7 +20,7 @@ function CustomDividerWithText(props: DividerWithTextProps) {
 
 function BreakdownButton({ stat }: { stat: string }) {
   return (
-    <Link href={`/stats/${stat.toLowerCase()}`}>
+    <Link href={`/stats/${stat}`}>
       <button className="bg-alternate text-sm font-coustard py-2 px-2 rounded-md hover:bg-white">
         Full Breakdown
       </button>
