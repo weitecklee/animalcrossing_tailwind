@@ -52,10 +52,18 @@ export default function StatBreakdown({
           <table className="w-full">
             <thead>
               <tr>
-                <th scope="col">Villager</th>
-                <th scope="col">Length of Stay (days)</th>
-                <th scope="col">Move-in Date</th>
-                <th scope="col">Move-out Date</th>
+                <th scope="col" className="px-3 py-1">
+                  Villager
+                </th>
+                <th scope="col" className="px-3 py-1">
+                  Length of Stay (days)
+                </th>
+                <th scope="col" className="px-3 py-1">
+                  Move-in Date
+                </th>
+                <th scope="col" className="px-3 py-1">
+                  Move-out Date
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -64,13 +72,17 @@ export default function StatBreakdown({
                   const history = historyMap.get(villager)!;
 
                   return (
-                    <tr key={villager}>
-                      <td className="flex justify-center">
+                    <tr key={villager} className="border-t hover:bg-white/40">
+                      <td className="flex justify-center px-3 py-1.5">
                         <VillagerIcon villager={villager} />
                       </td>
-                      <td className="text-center">{duration.duration}</td>
-                      <td className="text-center">{history.startDateString}</td>
-                      <td className="text-center">
+                      <td className="text-center px-3 py-1.5">
+                        {duration.duration}
+                      </td>
+                      <td className="text-center px-3 py-1.5">
+                        {history.startDateString}
+                      </td>
+                      <td className="text-center px-3 py-1.5">
                         {history.currentResident ? '-' : history.endDateString}
                       </td>
                     </tr>
