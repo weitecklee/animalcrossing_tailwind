@@ -1,7 +1,6 @@
 import CRIcon from '@/components/crIcon';
 import CustomImage from '@/components/customImage';
 import { History, NookipediaVillager } from '@/types';
-import IconWithText from '@/components/iconWithText';
 import {
   ArrowRightEndOnRectangleIcon,
   ArrowRightStartOnRectangleIcon,
@@ -19,9 +18,11 @@ export default function VillagerCard({
 }) {
   return (
     <Link href={`/villagers/${fixName(history.name)}`} scroll={false}>
-      <div className="w-80 cursor-pointer bg-white/40 transition shadow-lg hover:shadow-xl hover:bg-white">
+      <div className="w-28 md:w-80 cursor-pointer bg-white/40 transition shadow-lg hover:shadow-xl hover:bg-white">
         <div className={`flex flex-col md:flex-row`}>
-          <div className={`relative max-w-[50%] max-h-full h-40 w-80`}>
+          <div
+            className={`relative w-28 h-28 md:max-w-[50%] md:max-h-full md:h-40 md:w-80`}
+          >
             <CustomImage
               src={villagerData.nh_details.photo_url}
               alt={`${history.name} photo`}
@@ -30,25 +31,49 @@ export default function VillagerCard({
               blurColor={villagerData.title_color}
             />
           </div>
-          <div className="relative w-1/2 p-2">
-            <div className="flex items-center">
-              <span className="font-coustard text-xl pr-2">{history.name}</span>
-              {history.currentResident && <CRIcon />}
-            </div>
-            <IconWithText
-              Icon={ArrowRightEndOnRectangleIcon}
-              text={history.startDateString}
-            />
-            {history.photo && (
-              <IconWithText Icon={CameraIcon} text={history.photoDateString} />
-            )}
-            {!history.currentResident && (
-              <IconWithText
-                Icon={ArrowRightStartOnRectangleIcon}
-                text={history.endDateString}
-              />
-            )}
-            <IconWithText Icon={ClockIcon} text={dayOrDays(history.duration)} />
+          <div className="relative md:w-1/2 p-2">
+            <table>
+              <thead>
+                <tr>
+                  <td colSpan={2}>
+                    <div className="font-coustard text-md md:text-xl flex items-center gap-1">
+                      {history.name}
+                      {history.currentResident ? <CRIcon /> : ''}
+                    </div>
+                  </td>
+                </tr>
+              </thead>
+              <tbody className="text-xs md:text-base">
+                <tr>
+                  <td className="pr-1.5">
+                    <ArrowRightEndOnRectangleIcon className="h-4 w-4 inline" />
+                  </td>
+                  <td>{history.startDateString}</td>
+                </tr>
+                {history.photo && (
+                  <tr>
+                    <td className="pr-1.5">
+                      <CameraIcon className="h-4 w-4 inline" />
+                    </td>
+                    <td>{history.photoDateString}</td>
+                  </tr>
+                )}
+                {!history.currentResident && (
+                  <tr>
+                    <td className="pr-1.5">
+                      <ArrowRightStartOnRectangleIcon className="h-4 w-4 inline" />
+                    </td>
+                    <td>{history.endDateString}</td>
+                  </tr>
+                )}
+                <tr>
+                  <td className="pr-1.5">
+                    <ClockIcon className="h-4 w-4 inline" />
+                  </td>
+                  <td>{dayOrDays(history.duration)}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

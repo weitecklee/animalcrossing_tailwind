@@ -10,7 +10,7 @@ export default function IconWithText({
   return (
     <div className="flex items-center space-x-2">
       <Icon className="h-4 w-4 inline" />
-      <span className="text-base">&ensp;{text}</span>
+      <span className="text-xs md:text-base">&ensp;{text}</span>
     </div>
   );
 }
