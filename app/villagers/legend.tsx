@@ -1,7 +1,6 @@
 'use client';
 
 import CRIcon from '@/components/crIcon';
-import IconWithText from '@/components/iconWithText';
 import {
   ArrowRightEndOnRectangleIcon,
   ArrowRightStartOnRectangleIcon,
@@ -10,18 +9,41 @@ import { ClockIcon, CameraIcon } from '@heroicons/react/24/outline';
 
 export default function Legend() {
   return (
-    <div>
-      <div className="flex flex-row items-center">
-        <CRIcon />
-        <span>&ensp;Current Resident</span>
-      </div>
-      <IconWithText Icon={ArrowRightEndOnRectangleIcon} text="Move-in date" />
-      <IconWithText Icon={CameraIcon} text="Photo date" />
-      <IconWithText
-        Icon={ArrowRightStartOnRectangleIcon}
-        text="Move-out date"
-      />
-      <IconWithText Icon={ClockIcon} text="Length of Stay" />
-    </div>
+    <table>
+      <tbody className="text-xs md:text-base">
+        <tr>
+          <td className="pr-1.5">
+            <div className="flex items-center justify-center">
+              <CRIcon />
+            </div>
+          </td>
+          <td>Current Resident</td>
+        </tr>
+        <tr>
+          <td className="pr-1.5">
+            <ArrowRightEndOnRectangleIcon className="h-4 w-4 inline" />
+          </td>
+          <td>Move-in date</td>
+        </tr>
+        <tr>
+          <td className="pr-1.5">
+            <CameraIcon className="h-4 w-4 inline" />
+          </td>
+          <td>Photo date</td>
+        </tr>
+        <tr>
+          <td className="pr-1.5">
+            <ArrowRightStartOnRectangleIcon className="h-4 w-4 inline" />
+          </td>
+          <td>Move-out date</td>
+        </tr>
+        <tr>
+          <td className="pr-1.5">
+            <ClockIcon className="h-4 w-4 inline" />
+          </td>
+          <td>Length of Stay</td>
+        </tr>
+      </tbody>
+    </table>
   );
 }

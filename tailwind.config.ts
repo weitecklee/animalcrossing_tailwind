@@ -21,6 +21,13 @@ const config: Config = {
         montserrat: 'var(--font-montserrat)',
       },
     },
+    screens: {
+      sm: '600px',
+      md: '900px',
+      lg: '1200px',
+      xl: '1400px',
+      '2xl': '1600px',
+    },
   },
   plugins: [flowbite.plugin()],
 };

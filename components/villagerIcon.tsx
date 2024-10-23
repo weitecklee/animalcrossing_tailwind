@@ -15,13 +15,12 @@ export default function VillagerIcon({ villager }: { villager: string }) {
   return (
     <Link href={`/villagers/${villager}`}>
       <VillagerTooltip villager={villager}>
-        <div className="relative">
+        <div className="relative w-12 h-12 md:w-16 md:h-16">
           <Image
             src={villagerData.nh_details.icon_url}
             alt={villager}
             title={villager}
-            height={64}
-            width={64}
+            fill
             style={{
               cursor: 'pointer',
               opacity: isResident ? 1 : 0.4,

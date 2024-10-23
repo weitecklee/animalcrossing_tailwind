@@ -33,7 +33,7 @@ export default function RootLayout({
         className={`${montserrat.variable} ${coustard.variable} antialiased`}
       >
         <DataProvider>
-          <div className="container mx-auto max-w-7xl px-4 mt-20 pb-4 relative">
+          <div className="container mx-auto max-w-[1400px] px-4 mt-20 pb-4 relative">
             <TopBar />
             {children}
             <Scroller />
