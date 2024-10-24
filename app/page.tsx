@@ -6,8 +6,8 @@ import Events from './events';
 
 export default function Home() {
   return (
-    <div className="flex flex-col md:flex-row-reverse gap-4">
-      <div className="flex-full h-[33dvh] md:flex-1/3 md:h-full">
+    <div className="flex flex-col md:flex-row-reverse gap-4 justify-between">
+      <div className="flex-full h-[33dvh] sm:flex-1/2 md:flex-1/3 md:h-full">
         <Events />
       </div>
       <div className="flex-full md:flex-2/3">
