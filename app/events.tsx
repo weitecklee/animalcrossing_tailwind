@@ -29,9 +29,9 @@ export default function Events() {
   }
 
   return (
-    <div className="shadow-lg bg-white/40 py-2 px-6">
+    <div className="shadow-lg bg-white/40 py-2 px-6 h-full overflow-auto">
       <DividerWithText text="Latest Happenings" />
-      <div className="grid grid-cols-1 gap-2">
+      <div className="grid grid-cols-1 gap-2 pt-2">
         {eventsData.map((eventDatum) => {
           const { date, event, villager } = eventDatum;
           return (
