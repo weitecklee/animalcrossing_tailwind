@@ -27,7 +27,7 @@ export default function VillagerInfo({ villager }: { villager: string }) {
     <div className="grid grid-cols-1 md:grid-cols-12 gap-10 relative">
       <div className="col-span-12 sm:col-span-6 md:col-span-5 relative">
         <div className="flex flex-row space-x-2 w-full h-full relative">
-          <div className="relative w-96 h-96 max-w-1/2 max-h-full">
+          <div className="relative h-96 w-1/2 max-h-full">
             <CustomImage
               src={villagerData.image_url}
               alt={`${villagerData.name} image`}
@@ -37,7 +37,7 @@ export default function VillagerInfo({ villager }: { villager: string }) {
               key={villagerData.image_url}
             />
           </div>
-          <div className="flex flex-col items-center max-w-1/2 max-h-full">
+          <div className="flex flex-col items-center w-1/2 max-h-full">
             <div className="relative w-32 h-32 max-w-full max-h-full">
               <CustomImage
                 src={villagerData.nh_details.icon_url}
@@ -48,7 +48,7 @@ export default function VillagerInfo({ villager }: { villager: string }) {
                 key={villagerData.nh_details.icon_url}
               />
             </div>
-            <div className="relative w-64 h-64 max-w-full">
+            <div className="relative w-64 h-64 max-w-full max-h-full">
               <CustomImage
                 src={villagerData.nh_details.photo_url}
                 alt={`${villagerData.name} photo`}
