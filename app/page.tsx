@@ -6,11 +6,11 @@ import Events from './events';
 
 export default function Home() {
   return (
-    <div className="flex flex-row-reverse justify-between">
-      <div className="w-full sm:w-1/3">
+    <div className="flex flex-col md:flex-row-reverse gap-4">
+      <div className="flex-full h-[33dvh] md:flex-1/3 md:h-full">
         <Events />
       </div>
-      <div className="w-full sm:w-2/3">
+      <div className="flex-full md:flex-2/3">
         <p className="text-xl">Hello there!</p>
         <p className="mt-2">
           This is a site I made to showcase my&nbsp;
