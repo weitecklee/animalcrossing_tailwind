@@ -9,28 +9,28 @@ import {
 } from 'react';
 
 export const StateContext = createContext({
-  dialogActive: false,
-  setDialogActive: () => {},
-  dialogVillager: '',
-  setDialogVillager: () => {},
+  modalActive: false,
+  setModalActive: () => {},
+  modalVillager: '',
+  setModalVillager: () => {},
 } as {
-  dialogActive: boolean;
-  setDialogActive: Dispatch<SetStateAction<boolean>>;
-  dialogVillager: string;
-  setDialogVillager: Dispatch<SetStateAction<string>>;
+  modalActive: boolean;
+  setModalActive: Dispatch<SetStateAction<boolean>>;
+  modalVillager: string;
+  setModalVillager: Dispatch<SetStateAction<string>>;
 });
 
 export const StateProvider = ({ children }: { children: ReactNode }) => {
-  const [dialogActive, setDialogActive] = useState(false);
-  const [dialogVillager, setDialogVillager] = useState('');
+  const [modalActive, setModalActive] = useState(false);
+  const [modalVillager, setModalVillager] = useState('');
 
   return (
     <StateContext.Provider
       value={{
-        dialogActive,
-        setDialogActive,
-        dialogVillager,
-        setDialogVillager,
+        modalActive,
+        setModalActive,
+        modalVillager,
+        setModalVillager,
       }}
     >
       {children}

@@ -4,6 +4,8 @@ import './globals.css';
 import TopBar from './topBar';
 import { DataProvider } from '@/lib/dataContext';
 import Scroller from '@/components/scroller';
+import VillagerModal from './villagerModal';
+import { StateProvider } from '@/lib/stateContext';
 
 const montserrat = Montserrat({
   weight: 'variable',
@@ -24,8 +26,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  villagerModal,
 }: Readonly<{
   children: React.ReactNode;
+  villagerModal?: React.ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -33,11 +37,15 @@ export default function RootLayout({
         className={`${montserrat.variable} ${coustard.variable} antialiased`}
       >
         <DataProvider>
-          <div className="container mx-auto max-w-[1400px] px-4 mt-20 pb-4 relative">
-            <TopBar />
-            {children}
-            <Scroller />
-          </div>
+          <StateProvider>
+            <div className="container mx-auto max-w-[1400px] px-4 mt-20 pb-4 relative">
+              <TopBar />
+              {children}
+              <Scroller />
+              {villagerModal}
+              <VillagerModal />
+            </div>
+          </StateProvider>
         </DataProvider>
       </body>
     </html>
