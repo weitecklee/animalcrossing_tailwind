@@ -1,19 +1,25 @@
 import { DataContext } from '@/lib/dataContext';
-import { rgbDataURL } from '@/lib/functions';
+import { fixName, rgbDataURL } from '@/lib/functions';
 import nookipediaData from '@/lib/nookipediaData';
 import Image from 'next/image';
 import { useContext } from 'react';
 import CRBadge from './crBadge';
 import Link from 'next/link';
 import VillagerTooltip from './villagerTooltip';
+import { StateContext } from '@/lib/stateContext';
 
 export default function VillagerIcon({ villager }: { villager: string }) {
   const { historyMap } = useContext(DataContext);
   const villagerData = nookipediaData.get(villager)!;
   const isResident = historyMap.has(villager);
+  const { modalActive } = useContext(StateContext);
 
   return (
-    <Link href={`/villagers/${villager}`}>
+    <Link
+      href={`/villagers/${fixName(villager)}`}
+      replace={modalActive}
+      scroll={false}
+    >
       <VillagerTooltip villager={villager}>
         <div className="relative w-12 h-12 md:w-16 md:h-16">
           <Image

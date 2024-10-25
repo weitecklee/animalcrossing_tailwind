@@ -7,7 +7,6 @@ import VillagerIcon from '@/components/villagerIcon';
 import calculateStats from '@/lib/calculateStats';
 import { DataContext } from '@/lib/dataContext';
 import { dayOrDays } from '@/lib/functions';
-import { Table } from 'flowbite-react';
 import { notFound } from 'next/navigation';
 import { useContext } from 'react';
 
