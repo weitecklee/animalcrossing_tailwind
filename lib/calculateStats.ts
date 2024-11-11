@@ -69,7 +69,7 @@ function calculateStats(historyMap: Map<string, History>): CalculatedStats {
       tmp.villagers.push(history.name);
       const stayAfterGiving = calculateDays(
         history.photoDateDate,
-        history.endDateDate
+        history.endDateDate,
       );
       if (!history.currentResident) {
         if (stayAfterGiving < photoStats2.shortestAfterGiving.duration) {
