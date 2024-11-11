@@ -27,9 +27,11 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
   villagerModal,
+  statModal,
 }: Readonly<{
   children: React.ReactNode;
   villagerModal?: React.ReactNode;
+  statModal?: React.ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -43,6 +45,7 @@ export default function RootLayout({
               {children}
               <Scroller />
               {villagerModal}
+              {statModal}
               <VillagerModal />
             </div>
           </StateProvider>
