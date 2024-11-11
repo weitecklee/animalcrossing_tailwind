@@ -86,7 +86,7 @@ export default function StatBreakdown({
                       </td>
                     </tr>
                   );
-                })
+                }),
               )}
             </tbody>
           </table>
@@ -151,11 +151,11 @@ export default function StatBreakdown({
                       <div className="flex justify-center items-center gap-4">
                         <VillagerIcon villager={villager} />
                         <p>{`${dayOrDays(photo.trait)} (${dayOrDays(
-                          historyMap.get(villager)!.duration - photo.duration
+                          historyMap.get(villager)!.duration - photo.duration,
                         )})`}</p>
                       </div>
                     </li>
-                  ))
+                  )),
                 )}
               </ul>
             </div>
@@ -171,7 +171,7 @@ export default function StatBreakdown({
                         <p>{dayOrDays(noPhoto.trait)}</p>
                       </div>
                     </li>
-                  ))
+                  )),
                 )}
               </ul>
             </div>
@@ -191,7 +191,7 @@ export default function StatBreakdown({
                     <p>{islandmates.trait}</p>
                   </div>
                 </li>
-              ))
+              )),
             )}
           </ul>
         </>

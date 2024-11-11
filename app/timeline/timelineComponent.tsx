@@ -31,7 +31,7 @@ ChartJS.register(
   Legend,
   Colors,
   TimeScale,
-  Zoom
+  Zoom,
 );
 
 const options = {
@@ -249,8 +249,8 @@ export default function Timeline() {
             {timelineMode === 0
               ? 'Timeline view'
               : timelineMode === 1
-              ? 'Lined-up view'
-              : 'Sorted view'}
+                ? 'Lined-up view'
+                : 'Sorted view'}
           </button>
         </div>
       </Draggable>

@@ -64,7 +64,7 @@ export default function Stats() {
           {(
             Array.from(historyMap.values()).reduce(
               (a, b) => a + b.duration,
-              0
+              0,
             ) / historyMap.size
           ).toFixed(2)}{' '}
           days
